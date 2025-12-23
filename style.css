@@ -148,3 +148,224 @@ footer {
   }
 }
 
+/* Countdown styles */
+.countdown {
+  margin: 32px auto 28px;
+  padding: 12px 18px;
+  max-width: 420px;
+  border-radius: 999px;
+  border: 1px solid rgba(154, 209, 255, 0.35);
+  background: radial-gradient(circle at 0% 0%, rgba(154, 209, 255, 0.16), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(191, 143, 255, 0.12), transparent 65%),
+    rgba(3, 10, 32, 0.6);
+  box-shadow: 0 0 22px rgba(154, 209, 255, 0.18);
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.countdown-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.countdown-value {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  color: var(--text-sub);
+  opacity: 0.9;
+}
+
+.countdown-finished {
+  text-align: center;
+  width: 100%;
+  font-size: 1.02rem;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  animation: countdownGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes countdownGlow {
+  from {
+    text-shadow: 0 0 8px rgba(154, 209, 255, 0.4);
+  }
+  to {
+    text-shadow: 0 0 18px rgba(191, 143, 255, 0.7);
+  }
+}
+
+/* Wish button */
+.wish-button {
+  margin: 8px auto 0;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(154, 209, 255, 0.7);
+  background: radial-gradient(circle at 0% 0%, rgba(154, 209, 255, 0.16), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(191, 143, 255, 0.16), transparent 65%),
+    rgba(8, 16, 45, 0.9);
+  color: var(--text-main);
+  font: inherit;
+  font-size: 0.96rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 0 14px rgba(154, 209, 255, 0.35);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 220ms ease;
+}
+
+.wish-button:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 24px rgba(154, 209, 255, 0.6);
+  border-color: rgba(191, 143, 255, 0.9);
+  background: radial-gradient(circle at 0% 0%, rgba(154, 209, 255, 0.26), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(191, 143, 255, 0.26), transparent 65%),
+    rgba(8, 16, 45, 1);
+}
+
+.wish-button:focus-visible {
+  outline: 2px solid rgba(191, 143, 255, 0.95);
+  outline-offset: 3px;
+}
+
+/* Overlay + modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 10% 0%, rgba(154, 209, 255, 0.05), transparent 55%),
+    rgba(1, 4, 18, 0.72);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition:
+    opacity 220ms ease-out,
+    visibility 220ms ease-out;
+}
+
+.overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wish-modal {
+  position: relative;
+  max-width: 420px;
+  width: calc(100% - 48px);
+  background: rgba(7, 13, 40, 0.96);
+  border-radius: 20px;
+  padding: 28px 26px 24px;
+  border: 1px solid rgba(154, 209, 255, 0.3);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  animation: modalIn 220ms ease-out forwards;
+}
+
+.wish-modal h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-sub);
+}
+
+.wish-text {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-sub);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  transition:
+    transform 140ms ease,
+    color 140ms ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+  color: var(--text-main);
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid rgba(154, 209, 255, 0.9);
+  outline-offset: 3px;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .countdown {
+    margin: 28px auto 22px;
+    padding: 10px 14px;
+    gap: 14px;
+  }
+
+  .wish-modal {
+    padding: 24px 20px 20px;
+  }
+}
+
+/* Signature footer */
+.signature-footer {
+  position: fixed;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  max-width: 90vw;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(3, 8, 30, 0.85);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.7);
+  color: var(--text-sub);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  z-index: 2;
+  opacity: 0.8;
+}
+
+.signature-footer p {
+  margin: 0;
+}
+

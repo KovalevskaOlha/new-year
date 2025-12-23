@@ -16,11 +16,39 @@
   <main class="card fade-up">
     <h1>Happy New Year!</h1>
     <p class="subtitle">Wishing you inspiration, joy, and success in the coming year</p>
+  
+    <!-- New Year countdown -->
+    <div class="countdown" id="countdown">
+      <!-- Filled by JavaScript -->
+    </div>
+  
+    <!-- Interactive wish button -->
+    <button class="wish-button" id="wish-button">
+      Open a New Year Wish
+    </button>
   </main>
 
   <footer class="fade-up delay">
     <p>With best wishes from your class</p>
   </footer>
+
+  <!-- New Year wish modal -->
+  <div class="overlay" id="wish-overlay" aria-hidden="true">
+    <div class="wish-modal" role="dialog" aria-modal="true" aria-labelledby="wish-title">
+      <button class="modal-close" id="wish-close" aria-label="Close wish">
+        ×
+      </button>
+      <h2 id="wish-title">A New Year Wish</h2>
+      <p class="wish-text" id="wish-text">
+        <!-- Filled by JavaScript -->
+      </p>
+    </div>
+  </div>
+
+  <!-- Signature footer -->
+  <div class="signature-footer">
+    <p>With warm New Year wishes from Kovalevska Olha to all teachers of our school</p>
+  </div>
 
   <script src="script.js"></script>
 </body>
