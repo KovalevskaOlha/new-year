@@ -1,0 +1,150 @@
+:root {
+  --bg-start: #0a0f2c;
+  --bg-end: #1b1f3b;
+  --accent: #9ad1ff;
+  --text-main: #e8f0ff;
+  --text-sub: #c7d6ff;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.15);
+  --glow-one: rgba(114, 187, 255, 0.25);
+  --glow-two: rgba(191, 143, 255, 0.2);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(120% 120% at 10% 10%, #1f2b4d 0%, transparent 35%),
+    radial-gradient(100% 100% at 90% 20%, rgba(145, 118, 255, 0.25) 0%, transparent 40%),
+    linear-gradient(145deg, var(--bg-start), var(--bg-end));
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  transform: translateZ(0);
+}
+
+.glow-one {
+  width: 45vmin;
+  height: 45vmin;
+  background: var(--glow-one);
+  top: 10%;
+  left: 5%;
+}
+
+.glow-two {
+  width: 55vmin;
+  height: 55vmin;
+  background: var(--glow-two);
+  bottom: 5%;
+  right: 0%;
+}
+
+.snow {
+  position: absolute;
+  inset: 0;
+}
+
+main.card {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  width: min(90vw, 760px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px 36px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw + 1rem, 3.6rem);
+  margin: 0 0 12px;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 25px rgba(154, 209, 255, 0.35);
+}
+
+.subtitle {
+  color: var(--text-sub);
+  font-size: clamp(1.05rem, 2vw + 0.4rem, 1.35rem);
+  margin: 0;
+  line-height: 1.6;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+  color: var(--text-sub);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.delay {
+  animation-delay: 0.25s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flake {
+  position: absolute;
+  top: -5vh;
+  color: #fff;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+  user-select: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(var(--drift), 105vh, 0) rotate(var(--spin));
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 600px) {
+  main.card {
+    padding: 36px 24px;
+  }
+
+  footer {
+    margin-top: 16px;
+    font-size: 0.9rem;
+  }
+}
+
